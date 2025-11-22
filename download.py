@@ -73,6 +73,12 @@ try:
     #--------------params    
     for timeframe in timeframes:
         for instrument in instruments:
+
+            datefrom = args.get("datefrom") if args.get("datefrom") not in (None, "") else config['download']['datefrom']
+            dateto = args.get("dateto") if args.get("dateto") not in (None, "") else datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+            datefrom = datetime.strptime(datefrom, "%Y-%m-%d %H:%M:%S")
+            dateto = datetime.strptime(dateto, "%Y-%m-%d %H:%M:%S")
+
             if mode == "up":
                 d = data.get_max_min(instrument=instrument, timeframe=timeframe, mode="max", filed="Date")
                 if d.status and d.data: 

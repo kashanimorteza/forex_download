@@ -116,9 +116,17 @@ python download.py instrument=XAU/USD timeframe=all mode=complete save =False bu
 <!-------------------------- Parameters -->
 Download
 ```bash
+screen -S forex_api
+
+cd forex_api
+source .env/bin/activate
 rm -fr ./History
 python download.py instrument=XAU/USD timeframe=all mode=complete save=False bulk=True
 
+Ctrl + A  then  D
+screen -ls
+screen -r forex_api
+du -sh History
 ```
 
 
