@@ -149,7 +149,7 @@ class Forex:
         return output 
 
     #--------------------------------------------- history
-    def history(self, instrument, timeframe, datefrom=None, dateto=None, count=None):
+    def history(self, instrument, timeframe, datefrom=None, dateto=None, count=None, delay=0):
         #-------------- Description
         # IN     : 
         # OUT    : 
@@ -171,6 +171,7 @@ class Forex:
                 #-----Get
                 while attempt < 3:
                     try:
+                        time.sleep(delay) 
                         data = self.fx.get_history(instrument, timeframe, date_from=datefrom, date_to=dateto, quotes_count=count)
                         break
                     except Exception as e:
