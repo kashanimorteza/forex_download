@@ -64,6 +64,7 @@ download:
   count: 100000
   repeat: 1
   delay: 0
+  save: True
   bulk: True
   datefrom: '1900-01-01 00:00:00'
   dateto: '2030-01-01 00:00:00'

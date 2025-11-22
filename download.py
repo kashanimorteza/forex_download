@@ -48,13 +48,15 @@ delay = args.get("delay") if args.get("delay") not in (None, "") else config['do
 delay = int(delay)
 bulk = args.get("bulk") if args.get("bulk") not in (None, "") else config['download']['bulk']
 bulk = utils.to_bool(bulk)
+save = args.get("save") if args.get("save") not in (None, "") else config['download']['save']
+save = utils.to_bool(save)
 datefrom = args.get("datefrom") if args.get("datefrom") not in (None, "") else config['download']['datefrom']
 dateto = args.get("dateto") if args.get("dateto") not in (None, "") else datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 datefrom = datetime.strptime(datefrom, "%Y-%m-%d %H:%M:%S")
 dateto = datetime.strptime(dateto, "%Y-%m-%d %H:%M:%S")
 
 #--------------------------------------------------------------------------------- Display
-params = { "account": account, "instrument": instrument, "timeframe": timeframe, "mode": mode, "count": count, "repeat": repeat, "delay": delay, "bulk": bulk, "datefrom": datefrom, "dateto": dateto}
+params = { "account": account, "instrument": instrument, "timeframe": timeframe, "mode": mode, "count": count, "repeat": repeat, "delay": delay, "save": save, "bulk": bulk, "datefrom": datefrom, "dateto": dateto}
 print(utils.format_dict_block("Download", params))
 
 #------------------------------------------------------------------- [ Action ]
@@ -81,7 +83,7 @@ try:
                 if d.status and d.data : 
                     dateto = d.data
                     dateto = utils.timeframe_nex_date(mode=mode,date=dateto, timeframe=timeframe)
-            store.run(instrument, timeframe, mode, count, repeat, delay, bulk, datefrom, dateto)
+            store.run(instrument, timeframe, mode, count, repeat, delay, save, bulk, datefrom, dateto)
     #--------------Connection
     forex.logout()
     db.close()

@@ -24,7 +24,7 @@ class Store:
         self.forex = forex
 
     #--------------------------------------------- run
-    def run(self, instrument, timeframe, mode, count, repeat, delay, bulk, datefrom, dateto):
+    def run(self, instrument, timeframe, mode, count, repeat, delay, save, bulk, datefrom, dateto):
         #-------------- Description
         # IN     : 
         # OUT    : 
@@ -48,7 +48,7 @@ class Store:
                         if end > start:
                             history:model_output = self.forex.history(instrument, timeframe, datefrom=start, dateto=end, count=count)
                             if history.status:
-                                self.data.save(instrument=instrument, timeframe=timeframe, data=history.data, bulk=bulk)
+                                if save : self.data.save(instrument=instrument, timeframe=timeframe, data=history.data, bulk=bulk)
                                 if mode == "complete" : 
                                     end = utils.timeframe_nex_date(mode ="complete", date=history.data["Date"].iloc[0] , timeframe=timeframe)
                                 if mode == "up" : 
