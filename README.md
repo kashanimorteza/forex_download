@@ -1,8 +1,8 @@
 <!--------------------------------------------------------------------------------- Description --->
 # Description
-Download live/history price
-Trade
-Auto-trading robots
+Download live/history price  
+Trade  
+Auto-trading robots  
 
 
 
