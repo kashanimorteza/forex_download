@@ -109,7 +109,7 @@ python download.py instrument=EUR/USD timeframe=t1 mode=complete bulk=True
 python download.py instrument=EUR/USD timeframe=t1 mode=update bulk=False
 python download.py instrument=EUR/USD timeframe=W1,D1 mode=complete bulk=True
 python download.py instrument=EUR/USD,EUR/GBP timeframe=W1,D1 mode=complete bulk=True
-python download.py instrument=XAU/USD timeframe=all mode=complete save =False bulk=True
+python download.py instrument=XAU/USD timeframe=t1 mode=down save=True bulk=True count=500000
 ```
 
 
