@@ -46,7 +46,7 @@ class Store:
                     end = dateto
                     while(True):
                         if end > start:
-                            history:model_output = self.forex.history(instrument, timeframe, datefrom=start, dateto=end, count=count, delay=3)
+                            history:model_output = self.forex.history(instrument, timeframe, datefrom=start, dateto=end, count=count)
                             if history.status:
                                 if save : self.data.save(instrument=instrument, timeframe=timeframe, data=history.data, bulk=bulk)
                                 if mode == "complete" : 
