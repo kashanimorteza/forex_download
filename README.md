@@ -121,7 +121,7 @@ screen -S forex_api
 cd forex_api
 source .env/bin/activate
 rm -fr ./History
-python download.py instrument=XAU/USD timeframe=all mode=complete save=False bulk=True
+python download.py instrument=XAU/USD timeframe=all mode=complete save=True bulk=True
 
 Ctrl + A  then  D
 screen -ls
