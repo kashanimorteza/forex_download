@@ -40,20 +40,20 @@ Auto-trading robots
 git clone git@github.com:kashanimorteza/forex_download.git
 cd forex_download
 ```
+pyenv
 ```bash
 pyenv local 3.7
-python --version
 python -m venv .env
 .env/bin/python -m pip install --upgrade pip
 source .env/bin/activate
 pip install -r requirements.txt
 pip list
 ```
+General
 ```bash
-/usr/local/bin/python3.7 --version
-/usr/local/bin/python3.7 -m venv .env3.7.17
-.env3.7.17/bin/python -m pip install --upgrade pip
-source .env3.7.17/bin/activate
+python3.7 -m venv .env3.7
+.env3.7/bin/python -m pip install --upgrade pip
+source .env3.7/bin/activate
 pip install -r requirements.txt
 pip list
 ```
